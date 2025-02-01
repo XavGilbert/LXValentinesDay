@@ -1,0 +1,207 @@
+body {
+    margin: 0;
+    padding: 16px;
+    height:100vh;
+    background: #ffc0cb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.valentines_card {
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: 4s;
+}
+
+.what_card {
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: 4s;
+}
+
+.front_img {
+    width: 450px;
+    margin-right: -50px;
+    margin-left: -50px; 
+    margin-top: 100px;
+    position: relative; 
+}
+
+.inside_img {
+    width: 350px;
+    margin-right: -50px;
+    margin-left: -50px; 
+    margin-top: 100px;
+    position: relative; 
+}
+
+.valentines_card:hover .front_card{
+    transform: rotateY(-160deg); 
+} 
+.valentines_card:hover .front_text {
+    display: none;
+}
+.front_text, .inside_text{
+    color: #A60657;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.front_card {
+    position: relative;
+    overflow: hidden;
+    transform-origin: left;
+    margin: 40px auto;
+    padding: 16px;
+    background-color: whitesmoke;
+    text-align: center;
+    box-shadow: 0 24px 40px -8px #ff1493;
+    width: 450px;
+    height: 800px;
+}
+.inside_card {
+    position: absolute;
+    overflow: hidden;
+    transform-origin: left;
+    margin: 40px auto;
+    padding: 16px;
+    background-color: whitesmoke;
+    text-align: center;
+    box-shadow: 0 24px 40px -8px #ff1493;
+    width: 450px;
+    height: 800px;
+    z-index:-1;
+    left:0;
+    top:0;
+
+}
+.valentines_card audio {
+    display: none;
+}
+
+.valentines_card:hover .front_img {
+    display: none;
+}
+.inside_card audio {
+    display: flex;
+    margin-left: 50px;
+    margin-right: 40px;
+}
+
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+}
+
+.button1:hover {
+  background-color: pink;
+  color: white;
+}
+
+/* Hearts animation */
+@keyframes heartPop {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.button1 {
+    position: relative; 
+    background-color: white; 
+    color: black; 
+    border: 2px solid pink;
+    overflow: hidden;
+}
+
+.button1:after {
+    content: "❤️";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    opacity: 0;
+}
+
+.button1.clicked:after {
+    animation: heartPop 3s forwards;
+}
+
+/* Flower animation */
+@keyframes flowerFall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Style for flowers */
+.flower {
+    position: absolute;
+    top: -10%;
+    font-size: 45px; /* Adjust the size of the flower */
+    opacity: 0;
+    animation: flowerFall 2s ease-in-out forwards;
+}
+
+/* Random flower colors */
+.flower:nth-child(odd) {
+    color: #FF69B4; /* Light pink */
+}
+
+.flower:nth-child(even) {
+    color: #FF1493; /* Deep pink */
+}
+
+/* Position the audio controls in the top-left corner */
+#background-music {
+    position: absolute;
+    top: 10px; /* Adjust distance from the top */
+    right: 10px; /* Adjust distance from the left */
+    z-index: 1000; /* Ensure it appears on top of other elements */
+    visibility: visible; /* Make sure it's visible if needed (can be set to 'hidden' or 'collapse' later) */
+}
+
+/* Label "Background Music" next to the audio control */
+#background-music-label {
+    position: absolute;
+    top: 55px;
+    right: 80px; /* Position the label a little to the left of the audio control */
+    font-size: 14px;
+    color: #A60657; /* You can change this color */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
