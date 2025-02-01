@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentines Day 2025</title>
+    <link rel="stylesheet" href="css/vday.css">
+</head>
+<body>
+
+	<!-- Background music -->
+    <audio id="background-music" controls loop>
+        <source src="media/music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+	
+	<p id="background-music-label">Background Music</p>
+	
+    <div class="valentines_card">
+        <div class="front_card">
+            <img src="images/vday.jpeg" class="front_img">
+            <div class="front_text">
+                <h3>I have a question for you....</h3>
+            </div>    
+        </div>
+        <div class="inside_card">
+            <img src="images/inside.png" class="inside_img">
+            <div class="inside_text">
+                <h4>Will you be my Valentine?</h4>
+
+                <button class="button button1">Yes</button>
+                <a href="what.html"><button class="button button1">No</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate falling flowers
+        function generateFlowers() {
+            const numFlowers = 100; // Number of flowers to generate
+            const flowerContainer = document.body;
+            
+            for (let i = 0; i < numFlowers; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                flower.innerHTML = "❤️"; // Flower emoji
+                flower.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+                flower.style.animationDelay = `${Math.random() * 2}s`; // Random delay for staggered fall
+                flowerContainer.appendChild(flower);
+
+                // Remove flowers after animation
+                setTimeout(() => {
+                    flower.remove();
+                }, 5000);
+            }
+        }
+
+        // Add event listener to the "Yes" button
+        document.querySelector('.button1').addEventListener('click', function() {
+            this.classList.add('clicked'); // Trigger heart pop animation
+            generateFlowers(); // Trigger flowers falling
+        });
+    </script>
+</body>
+</html>
